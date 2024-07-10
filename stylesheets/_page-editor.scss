@@ -1,0 +1,48 @@
+[data-component='picture'] {
+  img {
+    max-width: 100%;
+    padding: 0.2em 1em;
+    box-sizing: border-box;
+  }
+
+  > a {
+    display: block;
+    padding: 0.2em 1em;
+    pointer-events: none;
+  }
+
+  > a img {
+    border: var(--link-color) 3px solid;
+    padding: 0;
+    pointer-events: all;
+    &:active {
+      border-style: dotted;
+    }
+  }
+
+  &[data-horizontal-alignment='0'] {
+    text-align: left;
+  }
+  &[data-horizontal-alignment='1'] {
+    text-align: center;
+  }
+  &[data-horizontal-alignment='2'] {
+    text-align: right;
+  }
+
+  &[data-vertical-alignment='0'] {
+    align-self: flex-start;
+  }
+  &[data-vertical-alignment='1'] {
+    align-self: center;
+  }
+  &[data-vertical-alignment='2'] {
+    align-self: flex-end;
+  }
+}
+
+[data-component='card'] {
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .text-left { text-align: left; }
+}

@@ -1,0 +1,9 @@
+@import "fonts";
+
+.proudcms-page-editor {
+  background-color: var(--main-background);
+  font-family: Lucida Handwriting, verdana;
+  color: var(--text-color);
+  @import "reset";
+  @import "theme";
+}

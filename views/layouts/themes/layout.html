@@ -1,0 +1,42 @@
+#include <crails/i18n.hpp>
+#include <crails/cms/models/settings.hpp>
+#include <crails/cms/views/menu.hpp>
+#include "lib/assets.hpp"
+#include "src/style.hpp"
+
+OldSchoolStyle style;
+const char* @yield;
+const Crails::Cms::Settings& @settings;
+std::string @page_title = settings.get_title();
+bool @render_footer = true;
+
+// END LINKING
+<!DOCTYPE html>
+<html lang="<%= i18n::Settings::singleton::require().get_current_locale() %>">
+  <head>
+    <title><%= page_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <% partial("layouts/head") %>
+    <%= tag("link", {{"rel","stylesheet"},{"href", OldSchoolAssets::layout_css}}) %>
+  </head>
+  <body>
+    <header>
+      <%= Crails::Cms::RenderMenu("main-menu", this)
+             .with_direction(Crails::Cms::Menu::Horizontal)
+             .with_style(&style)() yields %>
+        <h1><%= settings.get_title() %></h1>
+      <% yields-end %>
+    </header>
+
+    <main>
+      <% if (yield != nullptr) do -%>
+        <%= yield %>
+      <% end -%>
+
+      <% if (render_footer) do -%>
+        <%= settings.get_footer() %>
+      <% end -%>
+    </main>
+  </body>
+</html>
