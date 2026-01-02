@@ -3,8 +3,8 @@
 #include <crails/cms/models/layout.hpp>
 #include <crails/cms/views/layout.hpp>
 #include <crails/cms/views/menu.hpp>
-#include <crails/cms/lib/assets.hpp>
-#include "lib/assets.hpp"
+#include <crails/cms/autogen/assets.hpp>
+#include "autogen/assets.hpp"
 #include "src/style.hpp"
 
 OldSchoolStyle style;
@@ -16,6 +16,7 @@ const Data theme_settings = settings.get_theme_settings();
 bool @render_footer = true;
 
 // END LINKING
+<!DOCTYPE html>
 <html lang="<%= i18n::Settings::singleton::require().get_current_locale() %>">
   <head>
     <title><%= page_title %></title>
@@ -24,11 +25,12 @@ bool @render_footer = true;
     <%= partial("layouts/head") %>
     <%= tag("link", {{"rel","stylesheet"},{"href", CrailsCmsAssets::pure_css}}) %>
     <%= tag("link", {{"rel","stylesheet"},{"href", OldSchoolAssets::layout_css}}) %>
+    <%= tag("script", {{"src", OldSchoolAssets::bundle_js}}) %>
   </head>
   <body>
     <div class="menu-wrapper">
       <label class="toggle-navigation" for="main-nav-toggle-navigation">
-        &#x2630 <%= i18n::t("Menu") %>
+        &#x2630; <%= i18n::t("Menu") %>
       </label>
       <input type="checkbox" id="main-nav-toggle-navigation" />
       <%= Crails::Cms::RenderMenu("main-menu", this)

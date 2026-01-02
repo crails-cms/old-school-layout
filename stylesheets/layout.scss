@@ -1,2 +1,6 @@
 @import "fonts";
 @import "theme";
+
+[data-component][data-cms-active="1"] {
+  outline-offset: 0 !important;
+}

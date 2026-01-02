@@ -19,7 +19,27 @@
       border-style: dotted;
     }
   }
+}
 
+[data-component='card'] {
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .text-left { text-align: left; }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    background-size: cover;
+  }
+}
+
+[data-component='separator'] {
+  clear: both;
+  height: 0;
+  width: 100%;
+}
+
+[data-component] {
   &[data-horizontal-alignment='0'] {
     text-align: left;
   }
@@ -41,8 +61,15 @@
   }
 }
 
-[data-component='card'] {
-  .text-center { text-align: center; }
-  .text-right { text-align: right; }
-  .text-left { text-align: left; }
+body.page-editor-frame {
+  height: 100%;
+
+  [data-component='separator']:before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 0px;
+    background-color: red;
+    opacity: 0;
+  }
 }

@@ -1,7 +1,8 @@
 #!/bin/sh
 
-SASS_COMMAND=node_modules/.bin/sass
-WEBPACK_COMMAND=node_modules/.bin/webpack
+export SASS_COMMAND=node_modules/.bin/sass
+export WEBPACK_COMMAND=node_modules/.bin/webpack
+export CRAILS_AUTOGEN_DIR=autogen
 
 crails templates build \
   -r html \
@@ -23,7 +24,7 @@ $SASS_COMMAND -s compressed "stylesheets/admin.scss"  > build/sass/admin.css
 
 crails-builtin-assets \
   --inputs "build/javascripts" "build/sass" "stylesheets/fonts" \
-  --output "lib/assets" \
+  --output "autogen/assets" \
   --classname "OldSchoolAssets" \
   --compression "gzip" \
   --uri-root "/cms/plugins/old-school/assets/"

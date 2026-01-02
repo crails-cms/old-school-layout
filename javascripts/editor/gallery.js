@@ -1,7 +1,12 @@
+function onComponentClicked(event) {
+  event.preventDefault();
+  this.layout.toolbar.setActiveComponent(this);
+}
+
 class GalleryItemComponent extends Cms.PageEditor.ImageComponentEditor {
   initializeProperties() {
     this.properties.caption = { type: "text", target: this, attribute: "caption" };
-    this.properties.href = { type: "text", target: this.link, attribute: "href" };
+    this.properties.href = { type: "link", target: this.link, attribute: "href" };
     super.initializeProperties();
   }
 
@@ -18,6 +23,8 @@ class GalleryItemComponent extends Cms.PageEditor.ImageComponentEditor {
   bindElements() {
     this.figure = this.root.querySelector(":scope > figure");
     this.link = this.figure.querySelector(":scope > a");
+    if (this.link)
+      this.link.addEventListener("click", onComponentClicked.bind(this));
     super.bindElements();
   }
 

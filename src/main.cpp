@@ -1,6 +1,6 @@
 #include "layout.hpp"
-#include "lib/assets.hpp"
-#include "lib/renderers/old_school_html_renderer.hpp"
+#include "autogen/assets.hpp"
+#include "autogen/renderers/old_school_html_renderer.hpp"
 
 extern "C"
 {

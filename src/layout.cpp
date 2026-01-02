@@ -1,12 +1,14 @@
+#include <crails/cms/autogen/assets.hpp>
 #include "layout.hpp"
 #include "style.hpp"
-#include "lib/assets.hpp"
+#include "autogen/assets.hpp"
 
 OldSchool::OldSchool()
 {
   name = "old_school";
   type = Crails::Cms::ComponentLayoutType;
   component_layout_name = "OldSchoolLayoutEditor";
+  stylesheets.push_back(CrailsCmsAssets::pure_css);
   stylesheets.push_back(OldSchoolAssets::layout_css);
   editor_stylesheets.push_back(OldSchoolAssets::admin_css);
   editor_javascripts.push_back(OldSchoolAssets::editor_js);

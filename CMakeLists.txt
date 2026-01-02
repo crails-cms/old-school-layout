@@ -13,9 +13,9 @@ execute_process(COMMAND ./prebuild.sh WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_D
 
 file(GLOB plugin_files
   src/*.cpp
-  lib/*.cpp
-  lib/renderers/*.cpp
-  lib/renderers/html/*.cpp)
+  autogen/*.cpp
+  autogen/renderers/*.cpp
+  autogen/renderers/html/*.cpp)
 
 add_library(old-school_layout SHARED ${plugin_files})
 set_property(TARGET old-school_layout PROPERTY ENABLE_EXPORTS ON)
